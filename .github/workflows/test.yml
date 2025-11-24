@@ -3,7 +3,7 @@ name: Dev CI 🚀
 on:
   push:
     branches:
-      - dev
+      - test
 
 jobs:
   dev-tests:
