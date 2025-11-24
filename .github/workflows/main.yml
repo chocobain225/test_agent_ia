@@ -1,0 +1,32 @@
+name: Main CI/CD 🌟
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  main-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cloner le dépôt
+        uses: actions/checkout@v5
+
+      - name: Installer Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Installer les dépendances
+        run: |
+          pip install -r requirements.txt
+
+      - name: Lancer les tests
+        run: |
+          echo "✅ Tests pour la branche main"
+          pytest
+
+      - name: Déploiement (optionnel)
+        run: |
+          echo "🚀 Ici tu peux mettre ton déploiement"
